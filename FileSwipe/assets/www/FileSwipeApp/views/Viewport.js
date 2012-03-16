@@ -9,13 +9,17 @@ FileSwipeApp.views.Viewport = Ext.extend(Ext.Panel, {
         //put instances of cards into app.views namespace
         Ext.apply(FileSwipeApp.views, {
         	signUp: new FileSwipeApp.views.SignUp(),
-        	login: new FileSwipeApp.views.Login()
+        	login: new FileSwipeApp.views.Login(),
+        	mainScreen: new FileSwipeApp.views.MainScreen(),
+        	contacts: new FileSwipeApp.views.Contacts()
         });
         //put instances of cards into viewport
         Ext.apply(this, {
             items: [
                 FileSwipeApp.views.login,
-                FileSwipeApp.views.signUp 
+                FileSwipeApp.views.signUp,
+                FileSwipeApp.views.mainScreen,
+                FileSwipeApp.views.contacts                 
             ]
         });
         FileSwipeApp.views.Viewport.superclass.initComponent.apply(this, arguments);

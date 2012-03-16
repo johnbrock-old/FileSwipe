@@ -1,9 +1,9 @@
-FileSwipeApp.views.Login = Ext.extend(Ext.Panel, {
+FileSwipeApp.views.Contacts = Ext.extend(Ext.Panel, {
     layout: 'fit',
     fullscreen: true,
     items: [{
             xtype: 'fieldset',
-            title: 'Login',
+            title: 'Contacts',
             instructions: 'FileSwipe - mobile file sharing application',
             defaults: {
                 required: true,
@@ -12,18 +12,18 @@ FileSwipeApp.views.Login = Ext.extend(Ext.Panel, {
             },
             items: [
                 {
-                    xtype: 'emailfield',
+                    xtype: 'button',
                     name : 'email',
                     label: 'Email',
                     placeHolder: 'you@email.com',
                     useClearIcon: true
                 }, {
-                    xtype: 'passwordfield',
+                    xtype: 'button',
                     name : 'password',
                     label: 'Four-Digit Pin',
                     useClearIcon: false
                 }, {
-                    xtype: 'checkboxfield',
+                    xtype: 'button',
                     name: 'rememberMe',
                     label: 'Remember login information',
                     labelWidth: '80%',
@@ -46,10 +46,10 @@ FileSwipeApp.views.Login = Ext.extend(Ext.Panel, {
                             {xtype: 'spacer'},
                             {
                                 text: 'Login',
-                                ui: 'confirm' ,
-                                handler: function() {
-                                    FileSwipeApp.views.viewport.setActiveItem(FileSwipeApp.views.mainScreen, {type: 'slide', direction: 'left'});    
-                                }
+                                ui: 'confirm' //,
+                                //handler: function() {
+                                    //form.reset();
+                                //}
                             },
                             {xtype: 'spacer'},
                             {
@@ -64,6 +64,6 @@ FileSwipeApp.views.Login = Ext.extend(Ext.Panel, {
                 ],
     initComponent: function() {
         //FileSwipeApp.stores.users.load();
-        FileSwipeApp.views.Login.superclass.initComponent.apply(this, arguments);
+        FileSwipeApp.views.Contacts.superclass.initComponent.apply(this, arguments);
     }
 });
