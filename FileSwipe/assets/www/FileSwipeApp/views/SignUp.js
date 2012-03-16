@@ -11,58 +11,66 @@ FileSwipeApp.views.SignUp = Ext.extend(Ext.Panel, {
                 labelAlign: 'left',
                 labelWidth: '40%'
             },
-            items: [
-                {
-                    xtype: 'emailfield',
-                    name : 'email',
-                    label: 'Email',
-                    placeHolder: 'you@email.com',
-                    useClearIcon: true
-                }, {
-                    xtype: 'passwordfield',
-                    name : 'password',
-                    label: 'Four-Digit Pin',
-                    useClearIcon: false
-                }, {
-                    xtype: 'checkboxfield',
-                    name: 'rememberMe',
-                    label: 'Remember SignUp information',
-                    labelWidth: '80%',
-                    required: false,
-                    checked: true
-                }
-            ],
+            items: [{
+                        xtype: 'textfield',
+                        name : 'name',
+                        label: 'First Name',
+                        useClearIcon: true,
+                        autoCapitalize : false
+                    }, {
+                        xtype: 'textfield',
+                        name : 'last_name',
+                        label: 'Last Name',
+                        useClearIcon: true,
+                        autoCapitalize : false
+                    }, {
+                        xtype: 'passwordfield',
+                        name : 'password',
+                        label: 'Four-Digit Pin',
+                        useClearIcon: false
+                    }, {
+                        xtype: 'textfield',
+                        name : 'phone_num',
+                        label: 'Phone Number',
+                        placeHolder: '979-123-4567',
+                        useClearIcon: true
+                    },{
+                        xtype: 'emailfield',
+                        name : 'email',
+                        label: 'Email',
+                        placeHolder: 'you@email.com',
+                        useClearIcon: true
+                    }
+            ]}],
         dockedItems: [{
                         xtype: 'toolbar',
                         dock: 'bottom',
-                        title: 'SignUp',
                         items: [
-                            {
-                                text: 'Signup',
-                                ui: 'back',
-                                //handler: function() {
-                                // form.reset();
-                                //}
-                            },
-                            {xtype: 'spacer'},
-                            {
-                                text: 'SignUp',
-                                ui: 'confirm',
-                                //handler: function() {
-                                    //form.reset();
-                                //}
-                            },
-                            {xtype: 'spacer'},
-                            {
-                                text: 'Forgot Password',
-                                ui: 'forward',
-                                //handler: function() {
-                                //}
+                        {
+                            text: 'Back',
+                            ui: 'back',
+                            handler: function() {
+                                FileSwipeApp.views.viewport.setActiveItem(FileSwipeApp.views.login, {type: 'slide', direction: 'left'});
                             }
-                        ]
-                    }
-                ]
-            }],
+                        },
+                        {xtype: 'spacer'},
+                        {
+                            text: 'Save',
+                            ui: 'confirm'//,
+                            //handler: function() {
+                              //  signUpForm.user.phone_num = document.myDeviceId;
+                                //if(signUpForm.user){
+                                  //  form.updateRecord(signUpForm.user, true);
+                               // }
+                                //form.submit({
+                                    //xmlhttp.open("GET","demo_get.asp",true);
+                                    //xmlhttp.send();
+                                  //  waitMsg : {message:'Submitting', cls : 'demos-loading'}
+                                //});
+                            //}
+                        }
+                    ]
+                }],
     initComponent: function() {
         //FileSwipeApp.stores.users.load();
         FileSwipeApp.views.SignUp.superclass.initComponent.apply(this, arguments);

@@ -1,9 +1,9 @@
 FileSwipeApp.views.Login = Ext.extend(Ext.Panel, {
     layout: 'fit',
+    fullscreen: true,
     items: [{
             xtype: 'fieldset',
             title: 'Login',
-            fullscreen: true,
             instructions: 'FileSwipe - mobile file sharing application',
             defaults: {
                 required: true,
@@ -30,38 +30,38 @@ FileSwipeApp.views.Login = Ext.extend(Ext.Panel, {
                     required: false,
                     checked: true
                 }
-            ],
-        dockedItems: [{
+            ]
+            }],
+            dockedItems: [{
                         xtype: 'toolbar',
                         dock: 'bottom',
-                        title: 'login',
                         items: [
-                            {
-                                text: 'Signup',
+                            /*{
+                                text: 'Forgot password',
                                 ui: 'back',
-                                //handler: function() {
-                                // form.reset();
-                                //}
-                            },
+                                handler: function() {
+                                    FileSwipeApp.views.viewport.setActiveItem(FileSwipeApp.views.signUp, {type: 'slide', direction: 'left'});
+                                }
+                            },*/
                             {xtype: 'spacer'},
                             {
                                 text: 'Login',
-                                ui: 'confirm',
+                                ui: 'confirm' //,
                                 //handler: function() {
                                     //form.reset();
                                 //}
                             },
                             {xtype: 'spacer'},
                             {
-                                text: 'Forgot Password',
+                                text: 'Signup',
                                 ui: 'forward',
-                                //handler: function() {
-                                //}
+                                handler: function() {
+                                    FileSwipeApp.views.viewport.setActiveItem(FileSwipeApp.views.signUp, {type: 'slide', direction: 'right'});
+                                }
                             }
                         ]
                     }
-                ]
-            }],
+                ],
     initComponent: function() {
         //FileSwipeApp.stores.users.load();
         FileSwipeApp.views.Login.superclass.initComponent.apply(this, arguments);
