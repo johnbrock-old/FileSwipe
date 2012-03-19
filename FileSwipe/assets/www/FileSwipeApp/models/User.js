@@ -14,7 +14,11 @@ Ext.data.ProxyMgr.registerType("userstorage",
 FileSwipeApp.models.User = Ext.regModel("FileSwipeApp.models.User", {
     fields: [
         {name: 'email',    type: 'string'},
-        {name: 'password', type: 'password'}
+        {name: 'password', type: 'password'},
+		{name: 'name',    type: 'string'},
+        {name: 'last_name', type: 'string'},
+		{name: 'name', type: 'string'},
+		{name: 'phone_num', type: 'string'}
     ],
     proxy: {
         type: "userstorage"

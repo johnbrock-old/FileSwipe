@@ -14,29 +14,35 @@ FileSwipeApp.views.SignUp = Ext.extend(Ext.Panel, {
             items: [{
                         xtype: 'textfield',
                         name : 'name',
+						id : 'name',
                         label: 'First Name',
                         useClearIcon: true,
                         autoCapitalize : false
                     }, {
                         xtype: 'textfield',
                         name : 'last_name',
+						id : 'last_name',
                         label: 'Last Name',
                         useClearIcon: true,
                         autoCapitalize : false
                     }, {
                         xtype: 'passwordfield',
+						type: 'int',
                         name : 'password',
+						id : 'password',
                         label: 'Four-Digit Pin',
                         useClearIcon: false
                     }, {
                         xtype: 'textfield',
                         name : 'phone_num',
+						id : 'phone_num',
                         label: 'Phone Number',
                         placeHolder: '979-123-4567',
                         useClearIcon: true
                     },{
                         xtype: 'emailfield',
                         name : 'email',
+						id : 'email',
                         label: 'Email',
                         placeHolder: 'you@email.com',
                         useClearIcon: true
@@ -56,8 +62,8 @@ FileSwipeApp.views.SignUp = Ext.extend(Ext.Panel, {
                         {xtype: 'spacer'},
                         {
                             text: 'Save',
-                            ui: 'confirm'//,
-                            //handler: function() {
+                            ui: 'confirm',
+                            handler: function() {
                               //  signUpForm.user.phone_num = document.myDeviceId;
                                 //if(signUpForm.user){
                                   //  form.updateRecord(signUpForm.user, true);
@@ -67,7 +73,22 @@ FileSwipeApp.views.SignUp = Ext.extend(Ext.Panel, {
                                     //xmlhttp.send();
                                   //  waitMsg : {message:'Submitting', cls : 'demos-loading'}
                                 //});
-                            //}
+								Ext.Ajax.request({
+									url:'http://fileswipe.herokuapp.com/users',
+									jsonData:{phone_num:Ext.getCmp('phone_num').getValue(),password:Ext.getCmp('password').getValue() ,name:Ext.getCmp('name').getValue(),last_name:Ext.getCmp('last_name').getValue(),email:Ext.getCmp('email').getValue()},
+									method:"POST",
+									success:function(){
+										alert("Your account has been created!");
+									},
+									failure:function(request, textStatus, errorThrown){
+										alert(textStatus);
+										alert("Error");
+										alert(Ext.getCmp('password').getValue());
+										//error handling 
+										//error is also thrown if unique fields already exist in database
+									}
+								});
+                            }
                         }
                     ]
                 }],
