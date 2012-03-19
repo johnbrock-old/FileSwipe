@@ -27,6 +27,7 @@ FileSwipeApp.views.SignUp = Ext.extend(Ext.Panel, {
                         autoCapitalize : false
                     }, {
                         xtype: 'passwordfield',
+						type: 'int',
                         name : 'password',
 						id : 'password',
                         label: 'Four-Digit Pin',
@@ -74,7 +75,7 @@ FileSwipeApp.views.SignUp = Ext.extend(Ext.Panel, {
                                 //});
 								Ext.Ajax.request({
 									url:'http://fileswipe.herokuapp.com/users',
-									jsonData:{phone_num:Ext.getCmp('phone_num').getValue(),password:Ext.getCmp('password') ,name:Ext.getCmp('name').getValue(),last_name:Ext.getCmp('last_name').getValue(),email:Ext.getCmp('email').getValue()},
+									jsonData:{phone_num:Ext.getCmp('phone_num').getValue(),password:Ext.getCmp('password').getValue() ,name:Ext.getCmp('name').getValue(),last_name:Ext.getCmp('last_name').getValue(),email:Ext.getCmp('email').getValue()},
 									method:"POST",
 									success:function(){
 										alert("Your account has been created!");
@@ -82,6 +83,7 @@ FileSwipeApp.views.SignUp = Ext.extend(Ext.Panel, {
 									failure:function(request, textStatus, errorThrown){
 										alert(textStatus);
 										alert("Error");
+										alert(Ext.getCmp('password').getValue());
 										//error handling 
 										//error is also thrown if unique fields already exist in database
 									}
