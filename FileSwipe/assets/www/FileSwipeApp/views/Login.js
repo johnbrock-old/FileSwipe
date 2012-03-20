@@ -14,12 +14,14 @@ FileSwipeApp.views.Login = Ext.extend(Ext.Panel, {
                 {
                     xtype: 'emailfield',
                     name : 'email',
+					id : 'email',
                     label: 'Email',
                     placeHolder: 'you@email.com',
                     useClearIcon: true
                 }, {
                     xtype: 'passwordfield',
                     name : 'password',
+					id : 'password',
                     label: 'Four-Digit Pin',
                     useClearIcon: false
                 }, {
@@ -48,8 +50,13 @@ FileSwipeApp.views.Login = Ext.extend(Ext.Panel, {
                                 text: 'Login',
                                 ui: 'confirm' ,
                                 handler: function() {
-                                    FileSwipeApp.views.viewport.setActiveItem(FileSwipeApp.views.mainScreen, {type: 'slide', direction: 'left'});    
-                                }
+									var url = "http://fileswipe.herokuapp.com/users/" + Ext.getCmp('password').getValue()+"/" + Ext.getCmp('email').getValue()+ ".json?callback?";
+									Ext.dispatch({
+										controller: FileSwipeApp.controllers.userController,
+										action: 'getRequest', 
+										url: url
+									});
+								}
                             },
                             {xtype: 'spacer'},
                             {
@@ -66,4 +73,18 @@ FileSwipeApp.views.Login = Ext.extend(Ext.Panel, {
         //FileSwipeApp.stores.users.load();
         FileSwipeApp.views.Login.superclass.initComponent.apply(this, arguments);
     }
+	
+	//onLogin: function() {
+	//	alert ("haha");
+	//	var url = "http://fileswipe.herokuapp.com/users/" + Ext.getCmp('password').getValue()+"/" + Ext.getCmp('email').getValue()+ ".json?callback?";
+	//	//alert (url);
+	//	//var url = "hello";
+	//	Ext.dispatch({
+	//		controller: FileSwipeApp.controllers.fileController,
+	//		action: 'test',//
+	//		url: url
+	//	});
+	//}
+			
+
 });
