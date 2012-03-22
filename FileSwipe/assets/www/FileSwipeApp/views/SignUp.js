@@ -29,7 +29,7 @@ FileSwipeApp.views.SignUp = Ext.extend(Ext.Panel, {
                         xtype: 'passwordfield',
 						type: 'int',
                         name : 'password',
-						id : 'password',
+						id : 'password_field',
                         label: 'Four-Digit Pin',
                         useClearIcon: false
                     }, {
@@ -64,13 +64,15 @@ FileSwipeApp.views.SignUp = Ext.extend(Ext.Panel, {
                             text: 'Save',
                             ui: 'confirm',
                             handler: function() {
-								Ext.Ajax.request({
-									url:'http://fileswipe.herokuapp.com/users',
-									jsonData:{phone_num:Ext.getCmp('phone_num').getValue(),password:Ext.getCmp('password').getValue() ,name:Ext.getCmp('name').getValue(),last_name:Ext.getCmp('last_name').getValue(),email:Ext.getCmp('email').getValue()},
+                                Ext.Ajax.request({
+									url:'http://fileswipe.herokuapp.com/users.json',
+									//url:'http://10.0.2.2:3000/users.json',
+									jsonData:{phone_num:Ext.getCmp('phone_num').getValue(),password:Ext.getCmp('password_field').getValue() ,name:Ext.getCmp('name').getValue(),last_name:Ext.getCmp('last_name').getValue(),email:Ext.getCmp('email').getValue()},
 									method:"POST",
 									success:function(){
 										alert("Your account has been created!");
 										//redirect to MainScreen
+										FileSwipeApp.views.viewport.setActiveItem(FileSwipeApp.views.mainScreen, {type: 'slide', direction: 'left'});
 									},
 									failure:function(request, textStatus, errorThrown){
 										alert(textStatus);

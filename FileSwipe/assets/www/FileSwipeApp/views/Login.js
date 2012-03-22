@@ -14,7 +14,7 @@ FileSwipeApp.views.Login = Ext.extend(Ext.Panel, {
                 {
                     xtype: 'emailfield',
                     name : 'email',
-					id : 'email',
+					//id : 'email',
                     label: 'Email',
                     placeHolder: 'you@email.com',
                     useClearIcon: true

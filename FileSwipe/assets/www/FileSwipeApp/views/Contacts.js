@@ -36,27 +36,11 @@ FileSwipeApp.views.Contacts = Ext.extend(Ext.Panel, {
                         xtype: 'toolbar',
                         dock: 'bottom',
                         items: [
-                            /*{
-                                text: 'Forgot password',
+                            {
+                                text: 'Back',
                                 ui: 'back',
                                 handler: function() {
-                                    FileSwipeApp.views.viewport.setActiveItem(FileSwipeApp.views.signUp, {type: 'slide', direction: 'left'});
-                                }
-                            },*/
-                            {xtype: 'spacer'},
-                            {
-                                text: 'Login',
-                                ui: 'confirm' //,
-                                //handler: function() {
-                                    //form.reset();
-                                //}
-                            },
-                            {xtype: 'spacer'},
-                            {
-                                text: 'Signup',
-                                ui: 'forward',
-                                handler: function() {
-                                    FileSwipeApp.views.viewport.setActiveItem(FileSwipeApp.views.signUp, {type: 'slide', direction: 'right'});
+                                    FileSwipeApp.views.viewport.setActiveItem(FileSwipeApp.views.mainScreen, {type: 'slide', direction: 'left'});
                                 }
                             }
                         ]
