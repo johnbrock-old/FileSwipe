@@ -14,14 +14,14 @@ FileSwipeApp.views.Login = Ext.extend(Ext.Panel, {
                 {
                     xtype: 'emailfield',
                     name : 'email',
-					//id : 'email',
+					id : 'email_login',
                     label: 'Email',
                     placeHolder: 'you@email.com',
                     useClearIcon: true
                 }, {
                     xtype: 'passwordfield',
                     name : 'password',
-					id : 'password',
+					id : 'password_login',
                     label: 'Four-Digit Pin',
                     useClearIcon: false
                 }, {
@@ -35,7 +35,7 @@ FileSwipeApp.views.Login = Ext.extend(Ext.Panel, {
             ]
             }],
             dockedItems: [{
-                        xtype: 'toolbar',
+                        xtype: 'toolbar', 
                         dock: 'bottom',
                         items: [
                             /*{
@@ -50,7 +50,7 @@ FileSwipeApp.views.Login = Ext.extend(Ext.Panel, {
                                 text: 'Login',
                                 ui: 'confirm' ,
                                 handler: function() {
-									var url = "http://fileswipe.herokuapp.com/users/" + Ext.getCmp('password').getValue()+"/" + Ext.getCmp('email').getValue()+ ".json?callback?";
+									var url = "http://fileswipe.herokuapp.com/users/" + Ext.getCmp('password_login').getValue()+"/" + Ext.getCmp('email_login').getValue()+ ".json?callback?";
 									Ext.dispatch({
 										controller: FileSwipeApp.controllers.userController,
 										action: 'getRequest', 
@@ -70,7 +70,7 @@ FileSwipeApp.views.Login = Ext.extend(Ext.Panel, {
                     }
                 ],
     initComponent: function() {
-        //FileSwipeApp.stores.users.load();
+        //FileSwipeApp.stores.contacts.load();
         FileSwipeApp.views.Login.superclass.initComponent.apply(this, arguments);
     }
 	

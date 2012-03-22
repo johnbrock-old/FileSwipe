@@ -1,36 +1,49 @@
 FileSwipeApp.views.MainScreen = Ext.extend(Ext.Panel, {
     layout: 'fit',
-    scroll: 'vertical',
-    standardSubmit : false,
-    items: [{
-            xtype: 'fieldset',
-            title: 'Files',
-            instructions: 'Please select a file above.',
-            defaults: {
-                required: true,
-                labelAlign: 'left',
-                labelWidth: '40%'
-            },
-            items: [{text: 'File 1'},
-                    {text: 'File 2'},
-            		{text: 'File 3'}
-            		]
-            }    
-            ],
-        dockedItems: [{
-                        xtype: 'toolbar',
-                        dock: 'bottom',
-                        items: [
-                        {
-                            text: 'Share',
-                           // ui: 'back',
-                            handler: function() {
-                                FileSwipeApp.views.viewport.setActiveItem(FileSwipeApp.views.contacts, {type: 'slide', direction: 'up'});
-                            }
-                        }]
-                }],
     initComponent: function() {
-        //FileSwipeApp.stores.users.load();
+
+        this.dockedItems = [{
+            xtype: 'toolbar',
+            dock: 'bottom',
+            title: 'FileSwipe'
+//            items: [
+//						{
+//							text: 'Click File to Share',
+//							ui: 'round',
+//							flex:1
+////							handler: function() {
+////								FileSwipeApp.views.viewport.setActiveItem(FileSwipeApp.views.contacts, {type: 'slide', direction: 'up'});}
+//							
+//						}
+//					]
+        },
+        {
+            xtype: 'toolbar',
+            dock: 'top',
+            title: 'Select File to Share'
+//            items: [
+//						{
+//							text: 'Click File to Share',
+//							ui: 'round',
+//							flex:1
+////							handler: function() {
+////								FileSwipeApp.views.viewport.setActiveItem(FileSwipeApp.views.contacts, {type: 'slide', direction: 'up'});}
+//							
+//						}
+//					]
+        }];
+
+        this.list = new Ext.List({
+			id: 'fileList',
+			itemTpl: '{name}',
+            ui: 'round',
+            store: 'fileStore'
+        });
+
+        this.items = [this.list];
+
         FileSwipeApp.views.MainScreen.superclass.initComponent.apply(this, arguments);
     }
 });
+
+Ext.reg('fs-sharelist', FileSwipeApp.views.MainScreen);
