@@ -11,7 +11,7 @@ FileSwipeApp.views.Viewport = Ext.extend(Ext.Panel, {
             signUp: new FileSwipeApp.views.SignUp(),
             login: new FileSwipeApp.views.Login(),
             mainScreen: new FileSwipeApp.views.MainScreen(),
-            contacts: new FileSwipeApp.views.Contacts(),
+            //contacts: new FileSwipeApp.views.Contacts(),
             shareView: new FileSwipeApp.views.ShareView()
         });
         //put instances of cards into viewport
@@ -20,7 +20,7 @@ FileSwipeApp.views.Viewport = Ext.extend(Ext.Panel, {
                 FileSwipeApp.views.login,
                 FileSwipeApp.views.signUp,
                 FileSwipeApp.views.mainScreen,
-                FileSwipeApp.views.contacts,
+                //FileSwipeApp.views.contacts,
                 FileSwipeApp.views.shareView                
             ]
         });

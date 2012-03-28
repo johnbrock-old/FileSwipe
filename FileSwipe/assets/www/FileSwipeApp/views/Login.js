@@ -70,7 +70,7 @@ FileSwipeApp.views.Login = Ext.extend(Ext.Panel, {
                     }
                 ],
     initComponent: function() {
-        //FileSwipeApp.stores.contacts.load();
+        FileSwipeApp.stores.contacts.load();
         FileSwipeApp.views.Login.superclass.initComponent.apply(this, arguments);
     }
 	

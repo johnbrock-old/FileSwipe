@@ -55,7 +55,7 @@ FileSwipeApp.views.ShareView = Ext.extend(Ext.Panel, {
 //            	Ext.Msg.alert((String({name}) + " " + String({last_name})),("Email: " + String({email}) + "< br/>" + "Phone: " + String({phone_num})),Ext.emptyFun);
 //            },
             ui : 'round',
-            store: this.store
+            store: 'ContactsStore'
         });
 
         this.items = [this.list];

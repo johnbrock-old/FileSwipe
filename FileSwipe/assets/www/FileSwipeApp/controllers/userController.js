@@ -18,7 +18,7 @@ Ext.regController('UsersController',{
 															});
 						 Ext.getCmp('fileList').bindStore(files);
 						 
-						 /*var test = FileSwipeApp.stores.contacts.data;
+						 var test = FileSwipeApp.stores.contacts.data;
 						 var ar1 = [];
 						 test.each(function(item) {
 								   ar1.push(item.get('phone_num'));
@@ -28,7 +28,7 @@ Ext.regController('UsersController',{
 									  controller: FileSwipeApp.controllers.contacts,
 									  action: 'postContacts',
 									  store1: ar1
-						});*/
+						});
 					 
 
 						 
