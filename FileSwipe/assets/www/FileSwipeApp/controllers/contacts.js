@@ -22,7 +22,6 @@ FileSwipeApp.controllers.contacts = new Ext.Controller({
 					model: "FileSwipeApp.models.Contact",
 					data: Ext.decode(response.responseText)
 				});
-				Ext.regStore('ContactsStore', str);
 				Ext.getCmp('contactsList').bindStore(str);	
 			},
 			failure:function(request, textStatus, errorThrown){
@@ -30,7 +29,7 @@ FileSwipeApp.controllers.contacts = new Ext.Controller({
 				alert("Could not retrieve contacts");
 			}
 		});
-		//alert("leaving postContacts");
+		alert("leaving postContacts");
 	}
 }
 );

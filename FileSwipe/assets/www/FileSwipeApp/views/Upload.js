@@ -21,37 +21,21 @@ FileSwipeApp.views.ShareView = Ext.extend(Ext.Panel, {
             xtype: 'toolbar',
             dock: 'bottom',
             title: 'FileSwipe'
-//            items: [
-//						{
-//							text: 'Click File to Share',
-//							ui: 'round',
-//							flex:1
-////							handler: function() {
-////								FileSwipeApp.views.viewport.setActiveItem(FileSwipeApp.views.contacts, {type: 'slide', direction: 'up'});}
-//							
-//						}
-//					]
+
         },
         {
             xtype: 'toolbar',
             dock: 'top',
-            title: 'Select Contact',
-            items: [
-						{
-							text: 'Back',
-							ui: 'back',
-							handler: function () {
-	
-									/*Ext.dispatch({
-										controller: FileSwipeApp.controllers.Files,
-										action: 'index',
-										animation: {type:'slide', direction:'right'}
-								 });*/
-							
-								}
-					}
-					
-					]
+            title: 'Select Contact'
+//            items: [
+//						{
+//							text: 'Back',
+//							ui: 'back',
+//							handler: function() {
+//								FileSwipeApp.views.Viewport.setActiveItem(FileSwipeApp.views.MainScreen, {type: 'slide', direction: 'right'});}
+//							
+//						}
+//					]
         }
         ];
        

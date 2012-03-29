@@ -49,11 +49,14 @@ Ext.regApplication({
         alert("Yay, it's working!");
     }
 });*/
-
 Ext.regApplication({
-    name: 'FileSwipeApp',
-    launch: function() {
-        console.log('Launch!!!!');
-        this.views.viewport = new this.views.Viewport();
-    }
+   name: 'FileSwipeApp',
+   launch: function() {
+		this.launched = true;
+		this.mainLaunch();
+   },
+   mainLaunch: function() {
+		if (!this.launched) {return;}
+		this.views.viewport = new this.views.Viewport();
+   }
 });
