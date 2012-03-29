@@ -18,44 +18,28 @@ Ext.regController('UsersController',{
 				else
 				{
 					Ext.Msg.alert("Login", "Login was successful", Ext.redirect('Files/index'));
-						 
 						/*var files = new Ext.data.JsonStore({
 							model: 'FileSwipeApp.models.Contact',//should this be Files model??
 							data: Ext.decode(msg.responseText)
 						});
 						 Ext.getCmp('fileList').bindStore(files);*/
 						 
-						 /*var test = FileSwipeApp.stores.contacts.data;
+						 var test = FileSwipeApp.stores.contacts.data;
 						 var ar1 = [];
 						 test.each(function(item) {
-								   ar1.push(item.get('phone_num'));
-								   })
-						 
-						 Ext.dispatch({
-									  controller: FileSwipeApp.controllers.contacts,
-									  action: 'postContacts',
-									  store1: ar1
-						});*/
-					 
+							var number = item.get('phone_num');
+							var regexObj = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+						   var formattedPhoneNumber = number.replace(regexObj, "$1-$2-$3");
+							ar1.push(formattedPhoneNumber);
+						  })
+						Ext.dispatch({
+						  controller: FileSwipeApp.controllers.contacts,
+						  action: 'postContacts',
+						  store1: ar1
+						});
 
-						 
-					this.store = new Ext.data.JsonStore({
-						 requires: ['FileSwipeApp.models.Files'],
-						 autoLoad: true,
-						 model: 'FileSwipeApp.models.Files',
-						 storeId: 'fileStore',  
-						 sorters: 'name',
-						 data: Ext.decode(msg.responseText)
-						 /*proxy: {
-							type: 'ajax',
-							//url: 'http://fileswipe.herokuapp.com/users/1234/irmalam19@tamu.edu.json?callback?',
-							url: this.url,
-							reader: {
-									type: 'json'
-							 }
-						 }*/
-					});
-					
+			
+
 					/*Ext.dispatch({
 						controller: "FileSwipeApp.controllers.Files", //filecontroller here
 						action: 'index'  //filecontroller action here

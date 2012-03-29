@@ -41,12 +41,7 @@ FileSwipeApp.views.ShareView = Ext.extend(Ext.Panel, {
 							text: 'Back',
 							ui: 'back',
 							handler: function () {
-	
-									/*Ext.dispatch({
-										controller: FileSwipeApp.controllers.Files,
-										action: 'index',
-										animation: {type:'slide', direction:'right'}
-								 });*/
+								FileSwipeApp.views.viewport.setActiveItem(FileSwipeApp.views.mainScreen, {type: 'slide', direction: 'right'});
 							
 								}
 					}
@@ -62,9 +57,8 @@ FileSwipeApp.views.ShareView = Ext.extend(Ext.Panel, {
 //            	Ext.Msg.alert((String({name}) + " " + String({last_name})),("Email: " + String({email}) + "< br/>" + "Phone: " + String({phone_num})),Ext.emptyFun);
 //            },
             ui : 'round',
-            store: this.store
+            store: 'ContactsStore'
         });
-
         this.items = [this.list];
 
         FileSwipeApp.views.ShareView.superclass.initComponent.apply(this, arguments);
