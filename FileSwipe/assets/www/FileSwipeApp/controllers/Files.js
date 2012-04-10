@@ -51,7 +51,7 @@ Ext.regController('Files', {
             type: 'slide',
             direction: 'left'
         });
-    },
+    }, 
     
     share: function(file, record) {
     	Ext.Ajax.request({
@@ -62,7 +62,7 @@ Ext.regController('Files', {
     			   			'owner[email]': record.data.email, 
     			   			'owner[url]': file.data.url, 
     			   			'owner[status]': false
-    			   		}
+    			   		} 
     		});
     }
 });

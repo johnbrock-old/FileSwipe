@@ -1,9 +1,14 @@
 Ext.regController('UsersController',{	
 	'saveData': function(options) {
-		console.log(options.saveLogin);
-		if (options.saveLogin == true) {
-				  window.localStorage.setItem(options.email, options.password);}
-		this.getRequest(options);
+	   // commented these lines out, saveLogin is null, need to look into this
+	   // alert("SavingData " + options.saveLogin);
+		//console.log(options.saveLogin);
+       // if (options.saveLogin == null) alert("saveLogin is false :(");
+		//if (options.saveLogin == true) {
+            window.localStorage.setItem("password", options.password);
+            window.localStorage.setItem("email", options.email);
+		//}
+		this.getRequest(options); 
 	},
 				  
 	'getRequest': function(options) {

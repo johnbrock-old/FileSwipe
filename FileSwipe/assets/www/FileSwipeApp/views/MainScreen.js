@@ -57,14 +57,14 @@ FileSwipeApp.views.MainScreen = Ext.extend(Ext.Panel, {
 				 sorters: 'name',
 				 proxy: {
 				  type: 'ajax',
-				  url: 'http://fileswipe.herokuapp.com/users/' + window.localStorage.getItem(window.localStorage.key(0)) + '/' + window.localStorage.key(0) + '.json?callback?',
-				  reader: {
+				  url: 'http://fileswipe.herokuapp.com/users/' + window.localStorage.getItem("password") + '/' + window.localStorage.getItem("email") + '.json?callback?',
+                  reader: {
 					type: 'json'
 				  }
 				}
 			})
         });
-		this.list.store.load();
+        this.list.store.load();
         this.items = [this.list];
 
         FileSwipeApp.views.MainScreen.superclass.initComponent.apply(this, arguments);
