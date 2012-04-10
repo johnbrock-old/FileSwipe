@@ -53,7 +53,7 @@ FileSwipeApp.views.Login = Ext.extend(Ext.Panel, {
 				handler: function() {
 					var password = Ext.getCmp('password_login').getValue();
 					var email = Ext.getCmp('email_login').getValue();
-					var saveOption = Ext.getCmp('rememberMe').getValue();
+					var saveOption = Ext.getCmp('rememberMe').isChecked();
 					var url = "http://fileswipe.herokuapp.com/users/" + password +"/" + email + ".json?callback?";
 					Ext.dispatch({
 						 controller: FileSwipeApp.controllers.userController,
