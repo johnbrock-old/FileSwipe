@@ -25,14 +25,12 @@ FileSwipeApp.controllers.contacts = new Ext.Controller({
 
 				Ext.regStore('ContactsStore',str);	
 				Ext.getCmp('contactsList').bindStore(str);
-				//Ext.redirect('Files/index');
 			},
 			failure:function(request, textStatus, errorThrown){
 				alert(textStatus);
 				alert("Could not retrieve contacts");
 			}
 		});
-		//alert("leaving postContacts");
 	}
 }
 );

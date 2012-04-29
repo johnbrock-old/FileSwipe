@@ -40,16 +40,22 @@ FileSwipeApp.views.Login = Ext.extend(Ext.Panel, {
 		dock: 'bottom',
 		items: [
 			{
+				xtype: 'button',
 				text: 'Signup',
 				ui: 'back',
+				name: 'signUp_button',
+				id: 'signUp_button',
 				handler: function() {
 					FileSwipeApp.views.viewport.setActiveItem(FileSwipeApp.views.signUp, {type: 'slide', direction: 'right'});
 				}
 			},
 			{xtype: 'spacer'},
 			{
+				xtype: 'button',
 				text: 'Login',
-				ui: 'confirm' ,
+				name: 'login_button',
+				id: 'login_button',
+				ui: 'confirm',
 				handler: function() {
 					var password = Ext.getCmp('password_login').getValue();
 					var email = Ext.getCmp('email_login').getValue();
